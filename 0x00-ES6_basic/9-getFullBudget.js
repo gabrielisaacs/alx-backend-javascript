@@ -5,7 +5,7 @@ export default function getFullBudgetObject(income, gdp, capita) {
   
   const fullBudget = {
     ...budget, // Spread the budget object to include its properties
-    getIncomeInDollars(income) { // Method to get income in dollars
+    getIncomeInDollars(income) {
       return `$${income}`; // Return the formatted string
     },
     getIncomeInEuros(income) { // Method to get income in euros
