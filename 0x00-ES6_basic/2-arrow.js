@@ -1,8 +1,8 @@
 export default function getNeighborhoodsList() {
   this.sanFranciscoNeighborhoods = ['SOMA', 'Union Square'];
 
-  // Use 'this' directly in an arrow function
-  this.addNeighborhood = (newNeighborhood) => {
+  // Use a regular function to maintain the proper `this` context
+  this.addNeighborhood = function(newNeighborhood) {
     this.sanFranciscoNeighborhoods.push(newNeighborhood); // Add new neighborhood
     return this.sanFranciscoNeighborhoods; // Return updated list
   };
