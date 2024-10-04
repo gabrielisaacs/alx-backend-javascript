@@ -1,7 +1,7 @@
 import Car from './10-car.js';
 
 // EVcar class
-export default class EVCar extends Car {
+class EVCar extends Car {
   constructor(brand, motor, color, range) {
     super(brand, motor, color);
     this._range = range;
@@ -11,3 +11,5 @@ export default class EVCar extends Car {
     return new Car(this._brand, this._motor, this._color);
   }
 }
+
+export default EVCar;
