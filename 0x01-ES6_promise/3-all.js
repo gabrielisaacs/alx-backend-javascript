@@ -1,11 +1,12 @@
-import { uploadPhoto, createUser } from './utils';
+// task 3
+import { uploadPhoto, createUser } from './utils'; // import functions
 
 export default function handleProfileSignup() {
   const uploadPromise = uploadPhoto();
   const userPromise = createUser();
 
   Promise.all([uploadPromise, userPromise])
-    .then((responses) => {
+    .then((responses) => { // resolve promises
       const photoResponse = responses[0];
       const userResponse = responses[1];
 

@@ -1,3 +1,4 @@
+// task 2
 export default function handleResponseFromAPI(promise) {
   return promise
     .then(() => {
@@ -9,6 +10,6 @@ export default function handleResponseFromAPI(promise) {
     })
     .catch(() => {
       console.log('Got a response from the API');
-      return new Error();
+      return new Error(); // throw an error
     });
 }

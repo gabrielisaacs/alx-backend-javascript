@@ -1,3 +1,4 @@
+// Task 0
 function getResponseFromAPI() {
   return new Promise((resolve, reject) => {
     // Simulating an async API call
