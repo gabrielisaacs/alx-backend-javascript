@@ -1,30 +1,14 @@
 // Define and export the HolbertonClass before it's used
 export class HolbertonClass {
-  /**
-   * Create a new HolbertonClass instance.
-   *
-   * @param {number} year - The year of the class.
-   * @param {string} location - The location of the class.
-   */
   constructor(year, location) {
     this._year = year;
     this._location = location;
   }
 
-  /**
-   * Getter for year.
-   *
-   * @returns {number} The year of the class.
-   */
   get year() {
     return this._year;
   }
 
-  /**
-   * Getter for location.
-   *
-   * @returns {string} The location of the class.
-   */
   get location() {
     return this._location;
   }
@@ -34,7 +18,11 @@ export class HolbertonClass {
 const class2019 = new HolbertonClass(2019, 'San Francisco');
 const class2020 = new HolbertonClass(2020, 'San Francisco');
 
-// Define and export the StudentHolberton class
+/**
+ * Represents a Student at Holberton.
+ *
+ * @class
+ */
 export class StudentHolberton {
   /**
    * Create a new StudentHolberton instance.
@@ -46,32 +34,17 @@ export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
     this._firstName = firstName;
     this._lastName = lastName;
-    this._holbertonClass = holbertonClass; // Assign the holbertonClass instance
+    this._holbertonClass = holbertonClass; // Assign holbertonClass correctly
   }
 
-  /**
-   * Getter for the full name.
-   *
-   * @returns {string} The full name of the student.
-   */
   get fullName() {
     return `${this._firstName} ${this._lastName}`;
   }
 
-  /**
-   * Getter for holbertonClass.
-   *
-   * @returns {HolbertonClass} The class the student belongs to.
-   */
   get holbertonClass() {
-    return this._holbertonClass;
+    return this._holbertonClass; // Return the holbertonClass property
   }
 
-  /**
-   * Getter for the full student description.
-   *
-   * @returns {string} The full description of the student.
-   */
   get fullStudentDescription() {
     return `${this._firstName} ${this._lastName} - ${this._holbertonClass.year} - ${this._holbertonClass.location}`;
   }
