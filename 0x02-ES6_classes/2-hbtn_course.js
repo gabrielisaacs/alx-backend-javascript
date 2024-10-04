@@ -1,4 +1,11 @@
-// Implementing a class named Holberton Course
+/**
+ * Represents a Holberton course with a name, length, and enrolled students.
+ *
+ * @class
+ * @param {string} name - The name of the course.
+ * @param {number} length - The duration of the course in weeks.
+ * @param {string[]} students - An array of students enrolled in the course.
+ */
 export default class HolbertonCourse {
   constructor(name, length, students) {
     this.name = name;
