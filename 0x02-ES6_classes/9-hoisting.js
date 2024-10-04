@@ -1,6 +1,4 @@
-// Import HolbertonClass
-import HolbertonClass from './8-hbtn_class.js';
-
+// Define and export the HolbertonClass before it's used
 export class HolbertonClass {
   constructor(year, location) {
     this._year = year;
