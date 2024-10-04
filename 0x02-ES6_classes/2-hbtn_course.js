@@ -1,4 +1,4 @@
-// Implementing a class named HolbertonCourse
+// Implementing a class named Holberton Course
 export default class HolbertonCourse {
   constructor(name, length, students) {
     this.name = name;
