@@ -6,10 +6,22 @@
  * @throws {Error} Throws an error if an extending class does not implement the evacuationWarningMessage method.
  */
 export default class Building {
+  /**
+   * Creates an instance of Building.
+   *
+   * @param {number} sqft - The square footage of the building.
+   */
   constructor(sqft) {
-    if (this.constructor === Building) {
+    // Ensure sqft is a number
+    if (typeof sqft !== 'number') {
+      throw new TypeError('sqft must be a number');
+    }
+
+    // Prevent instantiation of abstract class
+    if (new.target === Building) {
       throw new Error('Cannot instantiate an abstract class');
     }
+
     this._sqft = sqft;
   }
 
@@ -25,6 +37,7 @@ export default class Building {
   /**
    * Abstract method that must be implemented by any class extending Building.
    *
+   * @abstract
    * @throws {Error} Throws an error if this method is not implemented in a subclass.
    */
   evacuationWarningMessage() {
