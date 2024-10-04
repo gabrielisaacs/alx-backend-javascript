@@ -1,5 +1,3 @@
-import Currency from './3-currency.js';
-
 /**
  * Represents a pricing structure with an amount and a currency.
  *
@@ -7,6 +5,7 @@ import Currency from './3-currency.js';
  * @param {number} amount - The amount of money.
  * @param {Currency} currency - The currency associated with the amount.
  */
+import Currency from './3-currency.js';
 export default class Pricing {
   constructor(amount, currency) {
     this._amount = amount;
