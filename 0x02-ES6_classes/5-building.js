@@ -1,44 +1,41 @@
 /**
- * Represents a building with a specified square footage.
- *
+ * Represents a building.
  * @class
- * @param {number} sqft - The square footage of the building.
- * @throws {Error} Throws an error if an extending class does not implement the evacuationWarningMessage method.
  */
 export default class Building {
   /**
-   * Creates an instance of Building.
+   * Create a Building instance.
    *
    * @param {number} sqft - The square footage of the building.
+   * @throws {Error} Throws an error if an attempt is made to instantiate Building directly.
    */
   constructor(sqft) {
-    // Ensure sqft is a number
+    // Ensure the sqft is a number
     if (typeof sqft !== 'number') {
       throw new TypeError('sqft must be a number');
     }
 
-    // Prevent instantiation of abstract class
+    // Prevent direct instantiation of Building
     if (new.target === Building) {
-      throw new Error('Cannot instantiate an abstract class');
+      throw new Error('Cannot instantiate Building directly');
     }
 
     this._sqft = sqft;
   }
 
   /**
-   * Gets the square footage of the building.
+   * Getter for the square footage.
    *
-   * @returns {number} The square footage.
+   * @returns {number} The square footage of the building.
    */
   get sqft() {
     return this._sqft;
   }
 
   /**
-   * Abstract method that must be implemented by any class extending Building.
+   * Abstract method that must be implemented by subclasses.
    *
-   * @abstract
-   * @throws {Error} Throws an error if this method is not implemented in a subclass.
+   * @throws {Error} If this method is not implemented by a subclass.
    */
   evacuationWarningMessage() {
     throw new Error(
