@@ -7,10 +7,10 @@
  */
 export default class Building {
   constructor(sqft) {
-    this._sqft = sqft;
-    if (new.target === Building) {
+    if (this.constructor === Building) {
       throw new Error('Cannot instantiate an abstract class');
     }
+    this._sqft = sqft;
   }
 
   /**
@@ -25,7 +25,6 @@ export default class Building {
   /**
    * Abstract method that must be implemented by any class extending Building.
    *
-   * @abstract
    * @throws {Error} Throws an error if this method is not implemented in a subclass.
    */
   evacuationWarningMessage() {
