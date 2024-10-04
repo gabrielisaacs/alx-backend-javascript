@@ -1,5 +1,5 @@
 export default class HolbertonCourse {
-  // Constructor to initialize the course attributes
+  // Constructor to initialize course attributes
   constructor(name, length, students) {
     // Validate inputs when object is created
     this.name = name;
