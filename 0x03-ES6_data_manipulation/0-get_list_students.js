@@ -1,3 +1,7 @@
+/**
+ * Returns a list of student objects.
+ * @returns {Array<Object>} Array of student objects with id, firstName, and location properties.
+ */
 function getListStudents() {
   const students = [
     { id: 1, firstName: 'Guillaume', location: 'San Francisco' },
@@ -7,4 +11,4 @@ function getListStudents() {
   return students;
 }
 
-module.exports = getListStudents;
+export default getListStudents;
