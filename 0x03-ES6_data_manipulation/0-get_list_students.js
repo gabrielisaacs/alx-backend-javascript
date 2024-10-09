@@ -7,4 +7,4 @@ function getListStudents() {
   return students;
 }
 
-export default getListStudents;
+module.exports = getListStudents;
