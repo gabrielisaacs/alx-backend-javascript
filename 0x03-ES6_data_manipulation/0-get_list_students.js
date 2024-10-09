@@ -1,4 +1,4 @@
-export default function getListStudents() {
+function getListStudents() {
   const students = [
     { id: 1, firstName: 'Guillaume', location: 'San Francisco' },
     { id: 2, firstName: 'James', location: 'Columbia' },
@@ -6,3 +6,5 @@ export default function getListStudents() {
   ];
   return students;
 }
+
+export default getListStudents;
