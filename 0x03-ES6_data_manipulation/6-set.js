@@ -1,6 +1,5 @@
-export default function setFromArray(array) {
-  if (array instanceof Array) {
-    return new Set(array);
-  }
-  return [];
+function setFromArray(arr) {
+  return new Set(arr);
 }
+
+export default setFromArray;
