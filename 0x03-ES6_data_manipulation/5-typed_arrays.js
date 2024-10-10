@@ -1,4 +1,5 @@
 function createInt8TypedArray(length, position, value) {
+  // Create a new ArrayBuffer of the specified length
   const buffer = new ArrayBuffer(length);
 
   const dataView = new DataView(buffer);
