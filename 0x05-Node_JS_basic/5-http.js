@@ -25,7 +25,7 @@ const app = http.createServer((req, res) => {
       return;
     }
 
-    res.write('This is the list of our students');
+    res.write('This is the list of our students\n');
 
     countStudents(database)
       .then(() => {
