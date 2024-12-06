@@ -9,7 +9,6 @@ function countStudents(path) {
   try {
     // Read file content synchronously
     const data = fs.readFileSync(path, 'utf-8').trim();
-    
     const lines = data.split('\n');
     const headers = lines[0].split(',');
 
@@ -17,10 +16,12 @@ function countStudents(path) {
       throw new Error('Invalid database format');
     }
 
-    const students = lines.slice(1).filter(line => line.trim() !== '').map(line => line.split(','));
-    
+    const students = lines
+      .slice(1)
+      .filter((line) => line.trim() !== '')
+      .map((line) => line.split(','));
     const fields = {};
-    students.forEach(student => {
+    students.forEach((student) => {
       const field = student[3];
       const firstname = student[0];
       if (!fields[field]) fields[field] = [];
@@ -29,7 +30,6 @@ function countStudents(path) {
 
     // Log the total number of students
     console.log(`Number of students: ${students.length}`);
-    
     // Log the number of students in each field and their names
     for (const [field, names] of Object.entries(fields)) {
       console.log(`Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`);
