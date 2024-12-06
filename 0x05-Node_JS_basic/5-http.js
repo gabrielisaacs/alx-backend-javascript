@@ -19,23 +19,25 @@ const app = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
 
-    const database = process.argv[2];
+    const database = process.argv[2];  // Get the database file from command line arguments
     if (!database) {
+      res.statusCode = 500;  // Server error if no database is provided
       res.end('This is the list of our students\nCannot load the database');
       return;
     }
 
-    res.write('This is the list of our students\n');
+    res.write('This is the list of our students');
 
     countStudents(database)
       .then(() => {
-        res.end();
+        res.end();  // Close the response after the students are counted
       })
-      .catch(() => {
-        res.end('Cannot load the database');
+      .catch((err) => {
+        res.statusCode = 500;  // Server error if there’s an issue reading the database
+        res.end(`This is the list of our students\n${err.message}`);
       });
   } else {
-    res.statusCode = 404;
+    res.statusCode = 404;  // Not found for unrecognized paths
     res.setHeader('Content-Type', 'text/plain');
     res.end('Not Found');
   }
