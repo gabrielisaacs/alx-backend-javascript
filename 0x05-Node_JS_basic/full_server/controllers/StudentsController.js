@@ -5,13 +5,10 @@ class StudentsController {
     readDatabase(process.argv[2])
       .then((studentGroups) => {
         const output = ['This is the list of our students'];
-        const sortedFields = Object.keys(studentGroups).sort((a, b) => 
-          a.localeCompare(b, 'en', { sensitivity: 'base' }));
-        
+        const sortedFields = Object.keys(studentGroups).sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
         sortedFields.forEach((field) => {
           output.push(`Number of students in ${field}: ${studentGroups[field].length}. List: ${studentGroups[field].join(', ')}`);
         });
-        
         response.status(200).send(output.join('\n'));
       })
       .catch(() => {
@@ -21,7 +18,6 @@ class StudentsController {
 
   static getAllStudentsByMajor(request, response) {
     const { major } = request.params;
-    
     if (major !== 'CS' && major !== 'SWE') {
       response.status(500).send('Major parameter must be CS or SWE');
       return;
