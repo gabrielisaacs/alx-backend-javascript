@@ -4,39 +4,35 @@ const countStudents = require('./3-read_file_async');
 const app = express();
 const PORT = 1245;
 
-// Set content type to plain text for all routes
-app.use((req, res, next) => {
-  res.setHeader('Content-Type', 'text/plain');
-  next();
-});
-
-// Root route
 app.get('/', (req, res) => {
-  res.send('Hello Holberton School!');
+  res.status(200).send('Hello Holberton School!');
 });
 
-// Students route
 app.get('/students', async (req, res) => {
-  try {
-    // Start with the initial text
-    let output = 'This is the list of our students\n';
+  const databasePath = process.argv[2];
+  let output = 'This is the list of our students\n';
 
+  try {
     // Capture console.log output
     const originalConsoleLog = console.log;
+    const logs = [];
     console.log = (str) => {
-      output += `${str}\n`;
+      logs.push(str);
     };
 
     // Process the database file
-    await countStudents(process.argv[2]);
+    await countStudents(databasePath);
 
     // Restore console.log
     console.log = originalConsoleLog;
 
-    // Send the captured output
-    res.send(output.trim());
+    // Combine output with logs
+    output += logs.join('\n');
+    res.status(200).send(output);
   } catch (error) {
-    res.status(404).send(error.message);
+    // In case of error, still send the initial text followed by the error message
+    output += error.message;
+    res.status(200).send(output);
   }
 });
 
